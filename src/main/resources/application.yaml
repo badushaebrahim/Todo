@@ -1,0 +1,35 @@
+#  spring.servlet.multipart.enabled=true
+server:
+  port: 8099
+  servlet:
+    context-path: /todo/v1
+spring:
+  servlet:
+    multipart:
+      enabled: true
+      file-size-threshold: 15MB
+      max-file-size: 150MB
+      max-request-size: 25MB
+
+  data:
+    mongodb:
+      database: ntodo
+      uri: mongodb+srv://badusha:badusha@cluster0.lmat7tv.mongodb.net/?retryWrites=true&w=majority
+  mvc:
+    path match:
+      matching-strategy: ant-path-matcher
+app:
+  name: spring boot application
+  api:
+    title: Todo
+    version: 3.0.0
+    description: todo
+    base-package: training.doctor.management
+    contact-name: apisupportgroup
+    contact-email: apisupportgroup@abc.com
+    swagger:
+      enable: true
+
+
+file:
+  upload-dir: E:\doctor\management (1)\doctor-bookings\management\upload\
