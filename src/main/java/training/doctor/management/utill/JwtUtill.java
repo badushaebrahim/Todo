@@ -33,4 +33,20 @@ public class JwtUtill {
                 .getBody();
     }
 
+    public boolean isValidToken(String token){
+        Claims claim = parseToken(token);
+        Date  now = new Date();
+        return  now.before(claim.getExpiration());
+    }
+
+
+
+    public String getTokenValue(String token){
+        if (isValidToken(token)){
+           return parseToken(token).getSubject();
+        }
+
+        else {return "USER_ID_NOT_VALID";}
+    }
+
 }

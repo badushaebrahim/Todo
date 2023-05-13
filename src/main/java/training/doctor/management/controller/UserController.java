@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import training.doctor.management.enums.CountriesEnums;
 import training.doctor.management.model.request.CreateUserRequest;
+import training.doctor.management.model.request.LoginRequest;
 import training.doctor.management.model.response.ErrorModel;
 import training.doctor.management.model.response.UserCreatedResposposne;
 import training.doctor.management.service.AuthService;
@@ -28,6 +29,17 @@ public class UserController {
         catch(Exception e){
            return new  ResponseEntity<>(new ErrorModel(e.getMessage(),"NONE"),HttpStatus.BAD_REQUEST);
             }
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity<?> createNewDoctor(@RequestBody LoginRequest request, @RequestHeader("country") CountriesEnums countriesEnums) {
+
+        try {
+            return new ResponseEntity<>(service.loginUser(request), HttpStatus.ACCEPTED);
+        }
+        catch(Exception e){
+            return new  ResponseEntity<>(new ErrorModel(e.getMessage(),"NONE"),HttpStatus.BAD_REQUEST);
+        }
     }
 
 }
