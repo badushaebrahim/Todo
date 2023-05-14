@@ -14,7 +14,7 @@ spring:
   data:
     mongodb:
       database: ntodo
-      uri: mongodb+srv://badusha:badusha@cluster0.lmat7tv.mongodb.net/?retryWrites=true&w=majority
+      uri: mongodb+srv://uname:pwd@cluster0.lmat7tv.mongodb.net/?retryWrites=true&w=majority
   mvc:
     path match:
       matching-strategy: ant-path-matcher
